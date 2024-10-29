@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 10:54:58 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/29 16:30:32 by afpachec         ###   ########.fr       */
+/*   Created: 2024/10/29 17:09:31 by afpachec          #+#    #+#             */
+/*   Updated: 2024/10/29 17:21:13 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memchr(const void *s, int c, size_t n)
+static int	is_space(char c)
 {
-	unsigned char	*ptr;
-	unsigned char	uc;
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return (0);
+}
 
-	ptr = (unsigned char *)s;
-	uc = (unsigned char)c;
-	while (n--)
+int	ft_atoi(const char *str)
+{
+	int	sign;
+	int	num;
+
+	while (is_space(*str))
+		str++;
+	sign = 1;
+	if (*str == '-' || *str == '+')
 	{
-		if (*ptr == uc)
-			return (ptr);
-		ptr++;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	return (NULL);
+	num = 0;
+	while (*str >= '0' && *str <= '9')
+	{
+		num = (num * 10) + (*str - '0');
+		str++;
+	}
+	return (num * sign);
 }
