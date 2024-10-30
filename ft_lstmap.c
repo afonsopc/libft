@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 16:16:36 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/30 16:59:07 by afpachec         ###   ########.fr       */
+/*   Created: 2024/10/30 17:22:33 by afpachec          #+#    #+#             */
+/*   Updated: 2024/10/30 18:51:56 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*curr;
+	t_list	**new;
+	t_list	*current;
 
+	new = malloc(ft_lstsize(lst) * sizeof(t_list *));
 	if (!new)
-		return ;
-	if (!lst[0])
+		return (NULL);
+	while (lst)
 	{
-		lst[0] = new;
-		return ;
+		current = ft_lstnew(f(lst->content));
+		if (!current)
+		{
+			ft_lstclear(new, del);
+			return (NULL);
+		}
+		ft_lstadd_back(new, current);
+		lst = lst->next;
 	}
-	curr = lst[0];
-	new->next = NULL;
-	while (curr->next)
-		curr = curr->next;
-	curr->next = new;
+	return (new[0]);
 }
