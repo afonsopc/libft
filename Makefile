@@ -62,11 +62,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-test:
-	cd ../libft-unit-test; \
-		make f
-	make fclean
-
 bonus: $(OBJ) $(BONUS_OBJ)
 	ar rcs $(NAME) $(BONUS_OBJ) $(OBJ)
 
