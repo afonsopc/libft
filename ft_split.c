@@ -6,11 +6,10 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 21:44:09 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/29 23:40:35 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/10/30 12:38:12 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 static void	free_all(char **strs, size_t index)
@@ -72,7 +71,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	strs = malloc(count_items(s, c) + 1);
+	strs = malloc((count_items(s, c) + 1) * sizeof(char *));
 	if (!strs)
 		return (NULL);
 	if (!split(s, c, strs))
