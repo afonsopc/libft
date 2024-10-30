@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:17:02 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/28 19:48:25 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/10/30 19:36:00 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			*--ptr2 = *--ptr1;
 	}
 	else
-		while (--len)
+		while (len--)
 			*ptr2++ = *ptr1++;
 	return (dst);
 }
