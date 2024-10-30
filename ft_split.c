@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 21:44:09 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/30 12:38:12 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/10/30 18:58:35 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	free_all(char **strs, size_t index)
 	free(strs);
 }
 
-int	count_items(char const *s, char c)
+static int	count_items(char const *s, char c)
 {
 	size_t	i;
 
@@ -37,7 +37,7 @@ int	count_items(char const *s, char c)
 	return (i);
 }
 
-int	split(char const *s, char c, char **strs)
+static int	split(char const *s, char c, char **strs)
 {
 	size_t		i;
 	const char	*start;

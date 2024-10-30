@@ -6,20 +6,20 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 23:42:16 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/30 01:16:58 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/10/30 18:55:52 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	int_len(unsigned int n)
+static size_t	int_len(unsigned int n)
 {
 	if (n < 10)
 		return (1);
 	return (1 + int_len(n / 10));
 }
 
-unsigned int	itou(int n)
+static unsigned int	itou(int n)
 {
 	if (n < 0)
 		return (-n);
