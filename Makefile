@@ -63,8 +63,8 @@ fclean: clean
 	rm -f $(NAME)
 
 bonus: $(OBJ) $(BONUS_OBJ)
-	ar rcs $(NAME) $(BONUS_OBJ) $(OBJ)
+	ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
