@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 10:42:38 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/29 10:54:22 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/10/30 21:23:21 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
+	if (n == 0)
+		return (0);
 	n--;
 	while (n && *s1 && *s1 == *s2)
 	{

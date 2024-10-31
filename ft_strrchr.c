@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 10:25:19 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/29 10:42:26 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/10/30 21:22:21 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char	*ft_strrchr(const char *s, int c)
 	last_found = 0;
 	while (i == -1 || s[i])
 	{
-		if (s[i + 1] == c)
+		if (s[i + 1] == (char)c)
 			last_found = i + 1;
 		i++;
 	}
-	if (s[last_found] == c)
+	if (s[last_found] == (char)c)
 		return ((char *)&s[last_found]);
 	return (NULL);
 }

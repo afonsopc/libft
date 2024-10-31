@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:52:03 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/30 12:54:32 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/10/31 12:04:45 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	ft_putnbr_fd(int n, int fd)
 		return ;
 	}
 	else if (n < 0)
+	{
+		write(fd, "-", 1);
 		n = -n;
+	}
 	if (n >= 10)
 		ft_putnbr_fd(n / 10, fd);
 	write(fd, &"0123456789"[n % 10], 1);
