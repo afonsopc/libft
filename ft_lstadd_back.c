@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:16:36 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/31 15:17:28 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/10/31 16:40:40 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	while (curr->next)
 		curr = curr->next;
 	curr->next = new;
-	new->next = NULL;
 }
