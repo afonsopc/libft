@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 17:22:33 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/31 19:57:23 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/01 00:28:01 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,21 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
 	t_list	*current;
+	void	*content;
 
 	new = NULL;
 	while (lst)
 	{
-		current = ft_lstnew(f(lst->content));
+		content = f(lst->content);
+		if (!content)
+		{
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		current = ft_lstnew(content);
 		if (!current)
 		{
+			del(content);
 			ft_lstclear(&new, del);
 			return (NULL);
 		}
