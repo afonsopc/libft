@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:17:02 by afpachec          #+#    #+#             */
-/*   Updated: 2024/10/31 20:32:40 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/01 11:42:50 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*ptr1;
 	char	*ptr2;
 
+	if (!dst && !src)
+		return (NULL);
 	ptr1 = (char *)src;
 	ptr2 = (char *)dst;
 	i = -1;
